@@ -1,24 +1,25 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 using BankSolution.DateAccess;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Design;
 using Microsoft.Extensions.Configuration;
-using Module4HW3;
 
-namespace BankSolution.DateAccess
+namespace Module4HW3
 {
-    public class Program
+    public class BankContextFactory : IDesignTimeDbContextFactory<BankContext>
     {
-        public static void Main(string[] args)
+        public BankContext CreateDbContext(string[] args)
         {
             IConfiguration configuration = new ConfigurationBuilder().AddJsonFile("config.json").Build();
             var dbOptionsBuilder = new DbContextOptionsBuilder<BankContext>();
             var connectionString = configuration.GetConnectionString("DefaultConnection");
             dbOptionsBuilder.UseSqlServer(connectionString, i => i.CommandTimeout(60));
 
-            var bankContext = new BankContext(dbOptionsBuilder.Options);
-            bankContext.Database.Migrate();
-
-            bankContext.SaveChanges();
+            return new BankContext(dbOptionsBuilder.Options);
         }
     }
 }

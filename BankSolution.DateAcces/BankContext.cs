@@ -5,18 +5,17 @@ using System.Text;
 using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.SqlServer;
-using Module4HW3.DbModels;
-using Module4HW3.DbConfiguration;
+using BankSolution.DateAccess.DbModels;
+using BankSolution.DateAccess.DbConfiguration;
 using Microsoft.Extensions.Configuration;
 
-namespace Module4HW3
+namespace BankSolution.DateAccess
 {
-    public class Starter : DbContext
+    public class BankContext : DbContext
     {
-        public Starter()
+        public BankContext(DbContextOptions<BankContext> options)
+            : base(options)
         {
-            Database.EnsureDeleted();
-            Database.EnsureCreated();
         }
 
         public DbSet<Employee> Employees { get; set; }
@@ -24,6 +23,8 @@ namespace Module4HW3
         public DbSet<Office> Offices { get; set; }
         public DbSet<Project> Projects { get; set; }
         public DbSet<Title> Titles { get; set; }
+        public DbSet<Client> Clients { get; set; }
+
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.ApplyConfiguration(new EmployeeConfiguration());
@@ -31,12 +32,12 @@ namespace Module4HW3
             modelBuilder.ApplyConfiguration(new OfficeConfiguration());
             modelBuilder.ApplyConfiguration(new ProjectConfiguration());
             modelBuilder.ApplyConfiguration(new TitleConfiguration());
+            modelBuilder.ApplyConfiguration(new ClientConfiguration());
         }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            IConfiguration configuration = new ConfigurationBuilder().AddJsonFile("config.json").Build();
-            optionsBuilder.UseSqlServer(configuration.GetConnectionString("DefaultConnection"));
+            optionsBuilder.LogTo(Console.WriteLine);
         }
     }
 }

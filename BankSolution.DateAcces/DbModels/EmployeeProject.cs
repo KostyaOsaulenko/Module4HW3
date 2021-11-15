@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Module4HW3.DbModels
+namespace BankSolution.DateAccess.DbModels
 {
     public class EmployeeProject
     {

@@ -3,7 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.31613.86
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Module4HW3", "Module4HW3\Module4HW3.csproj", "{4899D1AD-D44D-48AF-A874-CE2C1F1D969D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Module4HW3", "Module4HW3\Module4HW3.csproj", "{4899D1AD-D44D-48AF-A874-CE2C1F1D969D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BankSolution.DateAcces", "BankSolution.DateAcces\BankSolution.DateAcces.csproj", "{8080F999-F26A-474F-A334-E9D73CD085FE}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +17,10 @@ Global
 		{4899D1AD-D44D-48AF-A874-CE2C1F1D969D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4899D1AD-D44D-48AF-A874-CE2C1F1D969D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4899D1AD-D44D-48AF-A874-CE2C1F1D969D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8080F999-F26A-474F-A334-E9D73CD085FE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8080F999-F26A-474F-A334-E9D73CD085FE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8080F999-F26A-474F-A334-E9D73CD085FE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8080F999-F26A-474F-A334-E9D73CD085FE}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
